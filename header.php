@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,4 +7,13 @@
     <title><?php bloginfo('name'); ?></title>
     <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
+
+    <div class="container">
+
+    <!-- site-header -->
+    <header class="site-header">
+        <h1><a href="<?php the_permalink(); ?>"><?php bloginfo('name'); ?></a></h1>
+        <h5><?php bloginfo('description'); ?></h5>
+    </header>
+    <!-- /site-header -->
