@@ -2,8 +2,31 @@
 
  get_header();
 
-    if(have_posts()) :
-        while (have_posts()) : the_post(); ?>
+    if(have_posts()) :?>
+
+        <h2><?php 
+
+            if (is_category()){
+                single_cat_title();
+            } elseif (is_tag()){
+                single_tag_title();
+            } elseif ( is_author()){
+                the_post();
+                echo 'Author Archives:' . get_the_author();
+                rewind_posts();
+            } elseif (is_day()){
+                echo 'Dayly archive' . get_the_date();
+            } elseif (is_month()){
+                echo 'Month'. get_the_date('F Y');
+            } elseif (is_year()){
+                echo 'Year'. get_the_date('Y');
+            } else{
+                echo 'Archives:';
+            };
+
+         ?></h2>
+
+       <? while (have_posts()) : the_post(); ?>
 
         <article class="post">
             <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -29,15 +52,7 @@
 
             </p>
 
-            <?php if ($post->post_excerpt): ?>
-                 <?php echo get_the_excerpt(); ?>
-                    <p> 
-                        <a href="<?php the_permalink(); ?>">Read more&raquo;</a>             
-                    </p>
-          
-            <?php else: ?>
-                    <?php the_content(); ?>
-            <?php endif ?>
+            <?php the_content(); ?>
         </article>
 
 

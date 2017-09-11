@@ -29,15 +29,7 @@
 
             </p>
 
-            <?php if ($post->post_excerpt): ?>
-                 <?php echo get_the_excerpt(); ?>
-                    <p> 
-                        <a href="<?php the_permalink(); ?>">Read more&raquo;</a>             
-                    </p>
-          
-            <?php else: ?>
-                    <?php the_content(); ?>
-            <?php endif ?>
+            <?php the_content(); ?>
         </article>
 
 
