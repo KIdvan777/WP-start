@@ -1,33 +1,33 @@
 <?php
+
 /*
-Template name: Special layout
+Template Name: Special Layout
 */
 
- get_header();
+get_header();
 
-    if(have_posts()) :
-        while (have_posts()) : the_post(); ?>
-
-        <article class="post page">
-
-                <h2><?php the_title(); ?></h2>
-
-                <div class="info-box">
-                    <h4><?php the_title(); ?></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat nihil iure consectetur ut corporis incidunt, doloribus nisi assumenda sint eos debitis nesciunt enim sapiente fugit quod natus eaque fuga tenetur.
-                        </p>
-              
-                </div>
-
-               <?php the_content(); ?>
-        </article>
-
-
-        <? endwhile;
-        else:
-            echo '<p>No content found</p>';
-     endif;
-
+if (have_posts()) :
+	while (have_posts()) : the_post(); ?>
+	
+	<article class="post page">
+		<h2><?php the_title(); ?></h2>
+		
+		<!-- info-box -->
+		<div class="info-box">
+			<h4>Disclaimer Title</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia.</p>
+		</div><!-- /info-box -->
+		
+		<?php the_content(); ?>
+	</article>
+	
+	<?php endwhile;
+	
+	else :
+		echo '<p>No content found</p>';
+	
+	endif;
+	
 get_footer();
 
- ?>
+?>
