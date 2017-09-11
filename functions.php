@@ -7,13 +7,6 @@ function LWP_scripts(){
 }
 add_action('wp_enqueue_scripts','LWP_scripts');
 
-//Navigation Menus
-
-register_nav_menus(array(
-	'primary'=>__('Primary Menu'),
-	'footer'=>__('Footer Menu'),
-
-));
 
 //Get top ancestors
 
@@ -44,3 +37,18 @@ function custom_excerpt_length() {
 }
 
 add_filter('excerpt_length','custom_excerpt_length');
+//Navigation Menus
+
+register_nav_menus(array(
+	'primary'=>__('Primary Menu'),
+	'footer'=>__('Footer Menu'),
+
+));
+
+//Add featured image support
+function LWP_setup(){
+	add_theme_support('post-thumbnails');
+	add_image_size('small-thumbnail',180, 120, true);
+	add_image_size('banner-image', 920, 210, array('left','top'));
+}
+add_action('after_setup_theme','LWP_setup');

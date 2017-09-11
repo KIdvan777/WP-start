@@ -28,7 +28,7 @@
              ?>
 
             </p>
-
+            <?php the_post_thumbnail('banner-image'); ?>
             <?php the_content(); ?>
         </article>
 
